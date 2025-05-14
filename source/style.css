@@ -1,0 +1,54 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #e9e0ff;
+    opacity : 0.75;
+    font-family: "Audiowide", sans-serif;
+}
+body {
+  background-image: url('image/le-paysage-d-une-ile-tropicale-de-dessin-anime.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: "Audiowide", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+}
+
+.colonne {
+  background-color: rgba(131, 131, 131, 0.6);
+  border-radius: 10px;
+  padding: 20px;
+  width: 30%;
+  min-height: 300px;
+}
+
+.PartieTitre {
+  text-align: center;
+  font-family: "Audiowide", sans-serif;
+  color : #ffffff;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  margin-bottom: 5px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
