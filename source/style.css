@@ -1,54 +1,159 @@
-html {
+html, body {
+  margin: 0;
+  padding: 0;
   height: 100%;
-  width: 100%;
+  overflow: hidden;
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    background-color: #e9e0ff;
-    opacity : 0.75;
-    font-family: "Audiowide", sans-serif;
-}
 body {
   background-image: url('image/le-paysage-d-une-ile-tropicale-de-dessin-anime.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  margin: 0;
   font-family: "Audiowide", sans-serif;
 }
 
 .container {
   display: flex;
   justify-content: space-around;
-  padding: 20px;
+  align-items: flex-start;
   gap: 20px;
+  height: calc(100vh - 200px); /* header + intro + form */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .colonne {
   background-color: rgba(131, 131, 131, 0.6);
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   width: 30%;
-  min-height: 300px;
+  min-height: 50px;
+  max-height: 100%;
+  overflow-y: auto;
+  transition: min-height 0.3s ease;
+}
+
+.colonne ul:empty {
+  min-height: 50px; /* plus petite si vide */
+}
+
+.colonne ul:not(:empty) {
+  min-height: 200px; /* plus grande si tâche(s) */
 }
 
 .PartieTitre {
   text-align: center;
-  font-family: "Audiowide", sans-serif;
-  color : #ffffff;
+  color: #ffffff;
+  margin-bottom: 10px;
+  user-select: none;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+  min-height: 100px;
+  border: 2px dashed transparent;
+}
+
+ul.dragover {
+  border-color: #a3a3a3;
 }
 
 li {
-  padding: 8px;
-  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 40px 12px 12px;
+  position: relative;
   background-color: #ddd;
   border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: grab;
+  user-select: none;
+}
+
+.task-title,
+.task-desc {
+  display: block;
+}
+
+button.delete-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 26px;
+  padding: 0;
+  font-size: 16px;
+}
+
+li.dragging {
+  opacity: 0.5;
+}
+
+form.add-task-form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+form.add-task-form select, 
+form.add-task-form input,
+form.add-task-form button {
+  padding: 8px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  flex-grow: 1;
+}
+
+form.add-task-form button {
+  flex-grow: 0;
+  width: 100px;
+  background-color: #5c5cff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.intro {
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  width: 80%;
+  max-width: 900px;
+}
+
+.intro-title {
+  font-size: 2em;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.intro-description {
+  font-size: 1em;
+  color: #444;
 }

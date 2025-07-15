@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="source/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
-    <title>To Do List</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="source/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong" />
+  <title>To Do List</title>
 </head>
 <body>
-    <header>
-        <h1>To Do List</h1>
-    </header>
-    <div class="container">
-  <div class="colonne">
-    <h2 class="PartieTitre">À faire</h2>
-    <ul>
-      <li>Tâche 1</li>
-      <li>Tâche 2</li>
-    </ul>
+  <section class="intro">
+    <h2 class="intro-title">Organise ta journée</h2>
+    <p class="intro-description">
+      Utilise cette To Do List pour gérer tes tâches dans les colonnes "À faire", "En cours" et "Terminer".
+      Déplace les éléments par glisser-déposer, ajoute de nouvelles tâches et supprime-les au besoin.
+    </p>
+  </section>
+  <div class="container">
+    <div class="colonne" data-column="todo">
+      <h2 class="PartieTitre">À faire</h2>
+      <ul id="todo-list"></ul>
+    </div>
+    <div class="colonne" data-column="inprogress">
+      <h2 class="PartieTitre">En cours</h2>
+      <ul id="inprogress-list"></ul>
+    </div>
+    <div class="colonne" data-column="terminer">
+      <h2 class="PartieTitre">Terminer</h2>
+      <ul id="terminer-list"></ul>
+    </div>
   </div>
-  <div class="colonne">
-    <h2 class="PartieTitre">En cours</h2>
-    <ul>
-      <li>Tâche 3</li>
-    </ul>
-  </div>
-  <div class="colonne">
-    <h2 class="PartieTitre">Evaluation</h2>
-    <ul>
-      <li>Tâche 4</li>
-    </ul>
-  </div>
-</div>
-
+  
+  <form class="add-task-form" id="add-task-form">
+    <input type="text" id="task-title-input" placeholder="Titre de la tâche" required />
+    <input type="text" id="task-desc-input" placeholder="Description (facultatif)" />
+    <select id="task-column-select">
+      <option value="todo">À faire</option>
+      <option value="inprogress">En cours</option>
+      <option value="terminer">Terminer</option>
+    </select>
+    <button type="submit">Ajouter</button>
+  </form>
+  
+  <script src="source/script.js"></script>
 </body>
 </html>
